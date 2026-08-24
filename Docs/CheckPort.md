@@ -22,9 +22,3 @@ optionally writes a log entry if the host offline or the port is not reachable.
 ```powershell
 .\CheckPort.ps1 -Target "192.168.1.10" -Port 443 -EnableLogging -LogPath "C:\Logs"
 ```
-
-## Notes
-Version:    1.0
-Author:     https://github.com/mmnps
-
-
