@@ -6,4 +6,5 @@
 ## Scripts for administrators
 
 | Script | Description |
-| [CheckPort.ps1](Scripts/CheckPort.ps1) | To check a port on a client over a loger time. | 
+| --- | --- |
+| [CheckPort.ps1](Scripts/CheckPort.ps1) | To check a port on a client over a longer time. |
