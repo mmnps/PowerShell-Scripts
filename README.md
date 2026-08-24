@@ -3,14 +3,7 @@
 - Instructions on how to use the scripts are provided directly in the files.
 
 
-## Overview
+## Scripts for administrators
 
-### CheckPort.ps1
-> Checks if a port is reachable on a specific host.
-> The result can be written into a log file.
-
-
-## Changelog
-
-### 24.08.2026
-- Added the CheckPort.ps1
+| Script | Description |
+| [CheckPort.ps1](Scripts/CheckPort.ps1) | To check a port on a client over a loger time. | 
