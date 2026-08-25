@@ -5,7 +5,6 @@ Checks if a host is reachable.
 
 ## Description
 Continuously checks if a host is reachable and writes the results into a log file.
-
 At the end, it displays a report showing how often a host was offline or online.
 
 ## Parameters
