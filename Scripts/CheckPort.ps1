@@ -62,7 +62,7 @@ function Write-Log {
     )
 
     $Timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    $MSG = "[$Timestamp] - $Level - $Text"
+    $Msg = "[$Timestamp] - $Level - $Text"
     $LogName = "$($ProgramName)_$(Get-Date -Format yyyy-MM-dd).log"
 
     if ($EnableLogging) {
@@ -76,21 +76,32 @@ function Write-Log {
             catch {
                 Write-Host "The log path cannot be created. It will be set to the default path. -> $($_.Exception.Message)" -ForegroundColor Red
                 $LogPath = Join-Path $PSScriptRoot "Logs"
+                if (-not (Test-Path $LogPath)) {
+                    try {
+                        New-Item -ItemType Directory -Path $LogPath | Out-Null
+                    }
+                    catch {
+                        Write-Host "The default log path cannot be created either. Logging is disabled. -> $($_.Exception.Message)" -ForegroundColor Red
+                        $EnableLogging = $false
+                    }
+                }
             }
         }
 
-        $LogFile = Join-Path $LogPath $LogName
-        try {
-            Add-Content -Path $LogFile -Value $MSG | Out-Null
-        }
-        catch {
-            Write-Host "The log entry cannot be written. -> $($_.Exception.Message)"
+        if ($EnableLogging) {
+            $LogFile = Join-Path $LogPath $LogName
+            try {
+                Add-Content -Path $LogFile -Value $Msg
+            }
+            catch {
+                Write-Host "The log entry cannot be written. -> $($_.Exception.Message)" -ForegroundColor Red
+            }
         }
     }
 
     switch ($Level) {
-        'OK'    { Write-Host $MSG -ForegroundColor Green }
-        'ERROR' { Write-Host $MSG -ForegroundColor Red }
+        'OK'    { Write-Host $Msg -ForegroundColor Green }
+        'ERROR' { Write-Host $Msg -ForegroundColor Red }
     }
 }
 
