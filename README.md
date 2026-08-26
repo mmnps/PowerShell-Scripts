@@ -1,6 +1,6 @@
 # PowerShell-Scripts
 - This repository contains a few small, useful PowerShell scripts available for download.
-- Instructions on how to use the scripts are provided directly in the files.
+- Instructions for using the scripts can be found directly in the files or in the respective documentation.
 
 
 ## Scripts for administrators
