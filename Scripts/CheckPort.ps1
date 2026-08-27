@@ -133,6 +133,9 @@ try {
                 Write-Log -Level OK -Text "Port $Port is reachable again on $Target."
                 $Offline = $false
             }
+            else {
+                Write-Host "Port $Port is reachable on $Target." -ForegroundColor Green
+            }
             $CountOnline++
         }
 
