@@ -16,7 +16,7 @@
     Enables the logging function.
 
 .PARAMETER LogPath
-    Shows the path to the log file. The default is a "Logs" folder next to the script.
+    Specifies the path where the log file should be stored The default is a "Logs" folder next to the script.
 
 .EXAMPLE
     .\TestConnection.ps1 -Target 192.168.1.10 -CheckInterval 30 -EnableLogging -LogPath "C:\Logs"
@@ -76,7 +76,7 @@ function Write-Log {
                     }
                     catch {
                         Write-Host "The default log path cannot be created either. Logging is disabled. -> $($_.Exception.Message)" -ForegroundColor Red
-                        $EnableLogging = $false
+                        $script:EnableLogging = $false
                     }
                 }
             }
