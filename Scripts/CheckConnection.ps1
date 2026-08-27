@@ -121,6 +121,9 @@ try {
                 Write-Log -Level OK -Text "$Target is reachable again."
                 $Offline = $false
             }
+            else {
+                Write-Host "$Target is online."
+            }
             $CountOnline++
         }
         Start-Sleep -Seconds $CheckInterval
