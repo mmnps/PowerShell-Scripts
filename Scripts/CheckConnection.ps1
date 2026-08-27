@@ -122,7 +122,7 @@ try {
                 $Offline = $false
             }
             else {
-                Write-Host "$Target is online."
+                Write-Host "$Target is online." -ForegroundColor Green
             }
             $CountOnline++
         }
